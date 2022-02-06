@@ -4,5 +4,5 @@ data class TvShowItem(
 
     val score: Double,
 
-    val show: Show
+    val show: TvShow
 )
