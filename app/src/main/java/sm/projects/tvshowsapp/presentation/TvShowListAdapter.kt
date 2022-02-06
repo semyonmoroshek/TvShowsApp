@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import sm.projects.tvshowsapp.R
 import sm.projects.tvshowsapp.data.network.network_entities.TvShowItem
-import sm.projects.tvshowsapp.data.network.network_entities.TvShowList
 
 class TvShowListAdapter() :
     RecyclerView.Adapter<TvShowListAdapter.TvShowViewHolder>() {
