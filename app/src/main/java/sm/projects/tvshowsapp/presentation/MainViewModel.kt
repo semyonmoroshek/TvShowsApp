@@ -11,11 +11,7 @@ import sm.projects.tvshowsapp.data.network.network_entities.TvShowList
 
 class MainViewModel : ViewModel() {
 
-    lateinit var recyclerListLiveData: MutableLiveData<TvShowList>
-
-    init {
-        recyclerListLiveData = MutableLiveData()
-    }
+    var recyclerListLiveData: MutableLiveData<TvShowList> = MutableLiveData()
 
     fun getRecyclerListObserver(): MutableLiveData<TvShowList> {
         return recyclerListLiveData
