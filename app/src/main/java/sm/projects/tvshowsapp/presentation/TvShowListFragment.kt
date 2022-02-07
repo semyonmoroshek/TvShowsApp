@@ -59,7 +59,7 @@ class TvShowListFragment : Fragment(), SearchView.OnQueryTextListener {
         recyclerView.adapter = tvShowListAdapter
     }
 
-    private fun getTvShowDataFromMainViewHolder() {
+    private fun getTvShowDataFromMainViewHolder(query: String) {
         viewModel.getRecyclerListObserver().observe(this, Observer<TvShowList> {
             if (it != null) {
                 tvShowListAdapter.setUpdatedData(it)//////////////////////////////////
@@ -67,7 +67,7 @@ class TvShowListFragment : Fragment(), SearchView.OnQueryTextListener {
                 Toast.makeText(activity, "Error in getting data", Toast.LENGTH_SHORT).show()
             }
         })
-        viewModel.makeApiCall()
+        viewModel.makeApiCall(query)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -77,9 +77,10 @@ class TvShowListFragment : Fragment(), SearchView.OnQueryTextListener {
         val search = menu.findItem(R.id.menu_search)
         val searchView = search?.actionView as? SearchView
         searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (query != null){
-                    getTvShowDataFromMainViewHolder()
+                    getTvShowDataFromMainViewHolder(query)
                 }
                 return true
             }

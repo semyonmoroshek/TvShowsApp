@@ -21,11 +21,11 @@ class MainViewModel : ViewModel() {
         return recyclerListLiveData
     }
 
-    fun makeApiCall() {
+    fun makeApiCall(query: String) {
         viewModelScope.launch(Dispatchers.IO) {
             val retroInstance =
                 RetrofitInstance.getRetrofitInstance().create(RetroService::class.java)
-            val tvShowItem = retroInstance.getTvShowsFromApi()
+            val tvShowItem = retroInstance.getTvShowsFromApi(query)
             recyclerListLiveData.postValue(tvShowItem)
         }
     }
