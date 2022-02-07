@@ -25,8 +25,8 @@ class MainViewModel : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             val retroInstance =
                 RetrofitInstance.getRetrofitInstance().create(RetroService::class.java)
-            val response = retroInstance.getTvShowsFromApi()
-            recyclerListLiveData.postValue(response)
+            val tvShowItem = retroInstance.getTvShowsFromApi()
+            recyclerListLiveData.postValue(tvShowItem)
         }
     }
 }
