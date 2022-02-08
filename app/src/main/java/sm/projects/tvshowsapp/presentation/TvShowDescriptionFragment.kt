@@ -1,0 +1,31 @@
+package sm.projects.tvshowsapp.presentation
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.navigation.fragment.navArgs
+import sm.projects.tvshowsapp.R
+
+
+class TvShowDescriptionFragment : Fragment() {
+
+    private val args by navArgs<TvShowDescriptionFragmentArgs>()
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view =  inflater.inflate(R.layout.fragment_tv_show_description, container, false)
+
+        return view
+    }
+
+    companion object {
+
+        @JvmStatic
+        fun newInstance() =
+            TvShowDescriptionFragment()
+    }
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/tvShowListFragment">
+
+    <fragment
+        android:id="@+id/tvShowListFragment"
+        android:name="sm.projects.tvshowsapp.presentation.TvShowListFragment"
+        android:label="fragment_tv_show_list"
+        tools:layout="@layout/fragment_tv_show_list" >
+        <action
+            android:id="@+id/action_tvShowListFragment_to_tvShowDescriptionFragment"
+            app:destination="@id/tvShowDescriptionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tvShowDescriptionFragment"
+        android:name="sm.projects.tvshowsapp.presentation.TvShowDescriptionFragment"
+        android:label="fragment_tv_show_description"
+        tools:layout="@layout/fragment_tv_show_description" >
+        <action
+            android:id="@+id/action_tvShowDescriptionFragment_to_tvShowListFragment"
+            app:destination="@id/tvShowListFragment" />
+        <argument
+            android:name="currentTvShow"
+            app:argType="sm.projects.tvshowsapp.data.TvShowData" />
+    </fragment>
+</navigation>
