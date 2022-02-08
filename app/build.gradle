@@ -5,9 +5,11 @@ plugins {
     id("kotlin-parcelize")
 
 
+
 }
 
 apply plugin: "kotlin-kapt"
+
 
 
 android {

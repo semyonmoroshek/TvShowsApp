@@ -38,6 +38,7 @@ class TvShowListAdapter() :
         val summary = tvShow.summary
         val language = tvShow.language
 
+
         val tvShowData = TvShowData(id, name, genres, summary, language)
 
         val action = TvShowListFragmentDirections.actionTvShowListFragmentToTvShowDescriptionFragment(tvShowData)
