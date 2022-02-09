@@ -1,10 +1,7 @@
 package sm.projects.tvshowsapp.data.db
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface TvShowDao {
@@ -13,8 +10,13 @@ interface TvShowDao {
     suspend fun addTvShowItem(tvShowItemDbModel: TvShowDbModel)
 
     @Query("SELECT * FROM show_table")
-    fun getShopList(): LiveData<List<TvShowDbModel>>
+    fun getTvShowList(): LiveData<List<TvShowDbModel>>
 
-    @Query("DELETE FROM show_table WHERE id=:shopItemId")
-    suspend fun deleteShopItem(shopItemId: Int)
+    @Delete
+    suspend fun deleteShopItem(tvShowItemDbModel: TvShowDbModel)
+
+    @Query("SELECT * FROM show_table WHERE id=:tvShowDbModelId LIMIT 1")
+    suspend fun getShopItem(tvShowDbModelId: Int): TvShowDbModel
+
+
 }

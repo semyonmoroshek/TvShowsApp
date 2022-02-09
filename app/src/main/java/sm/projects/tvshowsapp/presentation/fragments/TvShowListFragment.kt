@@ -1,10 +1,11 @@
-package sm.projects.tvshowsapp.presentation
+package sm.projects.tvshowsapp.presentation.fragments
 
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -12,12 +13,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import sm.projects.tvshowsapp.R
 import sm.projects.tvshowsapp.data.network.entities.TvShowList
+import sm.projects.tvshowsapp.presentation.MainViewModel
+import sm.projects.tvshowsapp.presentation.TvShowListAdapter
 
 
 class TvShowListFragment : Fragment() {
 
     private lateinit var tvShowListAdapter: TvShowListAdapter
-    var viewModel = MainViewModel()
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +28,7 @@ class TvShowListFragment : Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_tv_show_list, container, false)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
         setupRecyclerView(view)
 

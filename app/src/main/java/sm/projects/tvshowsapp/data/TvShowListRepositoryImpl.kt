@@ -1,31 +1,28 @@
 package sm.projects.tvshowsapp.data
 
-import android.util.Log
+import androidx.lifecycle.LiveData
+import sm.projects.tvshowsapp.data.db.TvShowDao
+import sm.projects.tvshowsapp.data.db.TvShowDbModel
 import sm.projects.tvshowsapp.data.network.entities.TvShowItem
-import sm.projects.tvshowsapp.domain.TvShowRepository
 
-object TvShowListRepositoryImpl : TvShowRepository {
+class TvShowListRepositoryImpl(private val tvShowDao: TvShowDao) {
 
-    private val tvShowList = mutableListOf<TvShowItem>()
+    private val tvShowList = mutableListOf<TvShowDbModel>()
 
-    override fun addTvShowItem(tvShowItem: TvShowItem) {
-        Log.i("ADDLIST", "adding item")
-        tvShowList.add(tvShowItem)
+
+     suspend fun addTvShowDbModel(tvShowDbModel: TvShowDbModel) {
+        tvShowDao.addTvShowItem(tvShowDbModel)
     }
 
-    override fun getTvShowList(): List<TvShowItem> {
-        Log.i("GETLIST", "getting list")
-        return tvShowList.toList()
+     fun getTvShowDbModelList(): LiveData<List<TvShowDbModel>> {
+        return tvShowDao.getTvShowList()
     }
 
-    override fun getTvShowItem(tvShowId: Int): TvShowItem {
-        Log.i("GETITEM", "getting item")
-
-        return tvShowList.find { it.show.id == tvShowId }
-            ?: throw RuntimeException("Element with id $tvShowId not found")
+    suspend fun deleteTvShowDbModelItem(tvShowDbModel: TvShowDbModel){
+        tvShowDao.deleteShopItem(tvShowDbModel)
     }
 
-    override fun downloadTvShowListFromApi(searchQuery: String): List<TvShowItem> {
-        TODO("Not yet implemented")
+    suspend fun getTvShowDbModelById(tvShowDbModelId: Int){
+        tvShowDao.getShopItem(tvShowDbModelId)
     }
 }

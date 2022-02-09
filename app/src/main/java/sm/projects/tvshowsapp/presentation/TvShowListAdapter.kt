@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import sm.projects.tvshowsapp.R
 import sm.projects.tvshowsapp.data.db.TvShowDbModel
 import sm.projects.tvshowsapp.data.network.entities.TvShowItem
+import sm.projects.tvshowsapp.presentation.fragments.TvShowListFragmentDirections
 
 class TvShowListAdapter() :
     RecyclerView.Adapter<TvShowListAdapter.TvShowViewHolder>() {
@@ -36,9 +37,9 @@ class TvShowListAdapter() :
         val summary = tvShow.summary
         val language = tvShow.language
 
-        val tvShowData = TvShowDbModel(id, name, summary, language)
+        val tvShowDbModel = TvShowDbModel(id, name, summary, language)
 
-        val action = TvShowListFragmentDirections.actionTvShowListFragmentToTvShowDescriptionFragment(tvShowData)
+        val action = TvShowListFragmentDirections.actionTvShowListFragmentToTvShowDescriptionFragment(tvShowDbModel)
 
         viewHolder.itemView.setOnClickListener {
             viewHolder.itemView.findNavController().navigate(action)
