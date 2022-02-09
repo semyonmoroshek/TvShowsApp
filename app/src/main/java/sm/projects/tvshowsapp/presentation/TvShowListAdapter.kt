@@ -1,6 +1,5 @@
 package sm.projects.tvshowsapp.presentation
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +7,8 @@ import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import sm.projects.tvshowsapp.R
-import sm.projects.tvshowsapp.data.TvShowData
-import sm.projects.tvshowsapp.data.network.network_entities.TvShowItem
+import sm.projects.tvshowsapp.data.db.TvShowDbModel
+import sm.projects.tvshowsapp.data.network.entities.TvShowItem
 
 class TvShowListAdapter() :
     RecyclerView.Adapter<TvShowListAdapter.TvShowViewHolder>() {
@@ -34,12 +33,10 @@ class TvShowListAdapter() :
         val tvShow = tvShowListItems[position].show
         val id = tvShow.id
         val name = tvShow.name
-        val genres = tvShow.genres
         val summary = tvShow.summary
         val language = tvShow.language
 
-
-        val tvShowData = TvShowData(id, name, genres, summary, language)
+        val tvShowData = TvShowDbModel(id, name, summary, language)
 
         val action = TvShowListFragmentDirections.actionTvShowListFragmentToTvShowDescriptionFragment(tvShowData)
 

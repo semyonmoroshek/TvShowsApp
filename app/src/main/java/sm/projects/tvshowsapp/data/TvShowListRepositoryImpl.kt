@@ -1,7 +1,7 @@
 package sm.projects.tvshowsapp.data
 
 import android.util.Log
-import sm.projects.tvshowsapp.data.network.network_entities.TvShowItem
+import sm.projects.tvshowsapp.data.network.entities.TvShowItem
 import sm.projects.tvshowsapp.domain.TvShowRepository
 
 object TvShowListRepositoryImpl : TvShowRepository {
@@ -23,5 +23,9 @@ object TvShowListRepositoryImpl : TvShowRepository {
 
         return tvShowList.find { it.show.id == tvShowId }
             ?: throw RuntimeException("Element with id $tvShowId not found")
+    }
+
+    override fun downloadTvShowListFromApi(searchQuery: String): List<TvShowItem> {
+        TODO("Not yet implemented")
     }
 }

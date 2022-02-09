@@ -1,6 +1,5 @@
 package sm.projects.tvshowsapp.presentation
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -8,7 +7,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import sm.projects.tvshowsapp.data.network.RetroService
 import sm.projects.tvshowsapp.data.network.RetrofitInstance
-import sm.projects.tvshowsapp.data.network.network_entities.TvShowList
+import sm.projects.tvshowsapp.data.network.entities.TvShowList
 
 class MainViewModel : ViewModel() {
 

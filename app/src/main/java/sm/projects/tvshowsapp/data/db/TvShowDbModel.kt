@@ -1,14 +1,18 @@
-package sm.projects.tvshowsapp.data
+package sm.projects.tvshowsapp.data.db
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
-import sm.projects.tvshowsapp.data.network.network_entities.*
 
 @Parcelize
-data class TvShowData(
+@Entity(tableName = "show_table")
+data class TvShowDbModel(
+
+    @PrimaryKey
     val id: Int,
     val name: String,
-    val genres: List<String>,
     val summary: String,
     val language: String
+
     ): Parcelable

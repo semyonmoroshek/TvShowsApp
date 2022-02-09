@@ -1,7 +1,4 @@
-package sm.projects.tvshowsapp.data.network.network_entities
-
-import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+package sm.projects.tvshowsapp.data.network.entities
 
 
 data class TvShow(

@@ -1,6 +1,6 @@
 package sm.projects.tvshowsapp.domain
 
-import sm.projects.tvshowsapp.data.network.network_entities.TvShowItem
+import sm.projects.tvshowsapp.data.network.entities.TvShowItem
 
 class GetTvShowListUseCase(private val tvShowRepository: TvShowRepository) {
 

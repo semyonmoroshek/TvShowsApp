@@ -24,6 +24,6 @@
             app:destination="@id/tvShowListFragment" />
         <argument
             android:name="currentTvShow"
-            app:argType="sm.projects.tvshowsapp.data.TvShowData" />
+            app:argType="sm.projects.tvshowsapp.data.db.TvShowDbModel" />
     </fragment>
 </navigation>

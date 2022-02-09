@@ -1,4 +1,4 @@
-package sm.projects.tvshowsapp.data.network.network_entities
+package sm.projects.tvshowsapp.data.network.entities
 
 data class Externals(
     val imdb: Any,

@@ -24,7 +24,6 @@ class TvShowDescriptionFragment : Fragment() {
         _binding = FragmentTvShowDescriptionBinding.inflate(inflater, container, false)
 
         binding.txtName.text = args.currentTvShow.name
-        binding.txtGenres.text = args.currentTvShow.genres.toString()
         binding.txtSummary.text = args.currentTvShow.summary
         binding.txtLanguage.text = args.currentTvShow.language
 
