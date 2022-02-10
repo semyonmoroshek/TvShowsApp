@@ -6,6 +6,6 @@ import sm.projects.tvshowsapp.data.network.entities.TvShowList
 
 interface RetroService {
 
-    @GET("/search/shows?q=man/")
+    @GET("/search/shows?q=")
     suspend fun getTvShowsFromApi(@Query("q") query: String): TvShowList
 }

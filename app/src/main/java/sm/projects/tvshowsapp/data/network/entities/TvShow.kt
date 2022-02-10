@@ -1,7 +1,11 @@
 package sm.projects.tvshowsapp.data.network.entities
 
+import android.os.Parcelable
+import kotlinx.android.parcel.IgnoredOnParcel
+import kotlinx.android.parcel.Parcelize
 
 data class TvShow(
+
     val _links: Links,
     val averageRuntime: Int,
     val dvdCountry: Any,
@@ -24,5 +28,5 @@ data class TvShow(
     val updated: Int,
     val url: String,
     val webChannel: Any,
-    val weight: Int
+    val weight: Int,
 )

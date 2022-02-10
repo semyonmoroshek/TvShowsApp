@@ -32,19 +32,31 @@ class TvShowListAdapter() :
         viewHolder.bind(tvShowListItems[position])
 
         val tvShow = tvShowListItems[position].show
+
         val id = tvShow.id
         val name = tvShow.name
         val summary = tvShow.summary
         val language = tvShow.language
 
-        val tvShowDbModel = TvShowDbModel(id, name, summary, language)
+        if (language != null) {
+            val tvShowDbModel = TvShowDbModel(id, name, summary, language)
+            createQueryTvSHowList(tvShowDbModel, viewHolder)
+        } else {
+            val tvShowDbModel = TvShowDbModel(id, name, summary, "language not found")
+            createQueryTvSHowList(tvShowDbModel, viewHolder)
 
-        val action = TvShowListFragmentDirections.actionTvShowListFragmentToTvShowDescriptionFragment(tvShowDbModel)
+        }
+    }
+
+    private fun createQueryTvSHowList(tvShowDbModel: TvShowDbModel, viewHolder: TvShowViewHolder) {
+        val action =
+            TvShowListFragmentDirections.actionTvShowListFragmentToTvShowDescriptionFragment(
+                tvShowDbModel
+            )
 
         viewHolder.itemView.setOnClickListener {
             viewHolder.itemView.findNavController().navigate(action)
         }
-
     }
 
     override fun getItemCount(): Int {

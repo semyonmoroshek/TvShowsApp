@@ -1,6 +1,7 @@
 package sm.projects.tvshowsapp.data.db
 
 import android.os.Parcelable
+import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
