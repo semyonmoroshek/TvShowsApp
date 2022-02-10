@@ -5,7 +5,6 @@ import android.view.*
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -15,12 +14,12 @@ import androidx.recyclerview.widget.RecyclerView
 import sm.projects.tvshowsapp.R
 import sm.projects.tvshowsapp.data.network.entities.TvShowList
 import sm.projects.tvshowsapp.presentation.MainViewModel
-import sm.projects.tvshowsapp.presentation.TvShowListAdapter
+import sm.projects.tvshowsapp.presentation.TvShowQueryListAdapter
 
 
 class TvShowListFragment : Fragment() {
 
-    private lateinit var tvShowListAdapter: TvShowListAdapter
+    private lateinit var tvShowListAdapter: TvShowQueryListAdapter
     private lateinit var viewModel: MainViewModel
 
     override fun onCreateView(
@@ -45,7 +44,7 @@ class TvShowListFragment : Fragment() {
         val decoration = DividerItemDecoration(activity, DividerItemDecoration.VERTICAL)
         recyclerView.addItemDecoration(decoration)
 
-        tvShowListAdapter = TvShowListAdapter()
+        tvShowListAdapter = TvShowQueryListAdapter()
         recyclerView.adapter = tvShowListAdapter
     }
 

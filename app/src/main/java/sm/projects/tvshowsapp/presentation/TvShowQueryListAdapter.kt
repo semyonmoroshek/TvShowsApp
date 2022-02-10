@@ -11,8 +11,8 @@ import sm.projects.tvshowsapp.data.db.TvShowDbModel
 import sm.projects.tvshowsapp.data.network.entities.TvShowItem
 import sm.projects.tvshowsapp.presentation.fragments.TvShowListFragmentDirections
 
-class TvShowListAdapter() :
-    RecyclerView.Adapter<TvShowListAdapter.TvShowViewHolder>() {
+class TvShowQueryListAdapter() :
+    RecyclerView.Adapter<TvShowQueryListAdapter.TvShowViewHolder>() {
 
     var tvShowListItems = ArrayList<TvShowItem>()
 

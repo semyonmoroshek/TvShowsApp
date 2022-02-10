@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoriteTvShowListFragment"
-        android:name="sm.projects.tvshowsapp.FavoriteTvShowListFragment"
+        android:name="sm.projects.tvshowsapp.presentation.fragments.FavoriteTvShowListFragment"
         android:label="fragment_favorite_tv_show_list"
         tools:layout="@layout/fragment_favorite_tv_show_list" />
 </navigation>
