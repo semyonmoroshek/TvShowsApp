@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 @Database(entities = [TvShowDbModel::class], version = 1, exportSchema = false)
 abstract class AppDatabase: RoomDatabase() {
 
-    abstract fun shopListDao(): TvShowDao
+    abstract fun tvShowDao(): TvShowDao
 
     companion object {
 

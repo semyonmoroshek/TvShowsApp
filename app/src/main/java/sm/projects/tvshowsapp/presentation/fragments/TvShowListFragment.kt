@@ -13,14 +13,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import sm.projects.tvshowsapp.R
 import sm.projects.tvshowsapp.data.network.entities.TvShowList
-import sm.projects.tvshowsapp.presentation.MainViewModel
+import sm.projects.tvshowsapp.presentation.viewmodels.TvShowListViewModel
 import sm.projects.tvshowsapp.presentation.TvShowQueryListAdapter
 
 
 class TvShowListFragment : Fragment() {
 
     private lateinit var tvShowListAdapter: TvShowQueryListAdapter
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: TvShowListViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,7 +28,7 @@ class TvShowListFragment : Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_tv_show_list, container, false)
-        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        viewModel = ViewModelProvider(this)[TvShowListViewModel::class.java]
 
         setupRecyclerView(view)
 
@@ -81,7 +81,7 @@ class TvShowListFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         if (item.itemId == R.id.menu_favorite_show) {
-            findNavController().navigate(R.id.action_tvShowListFragment_to_favoriteTvShowListFragment)
+            findNavController().navigate(R.id.action_tvShowListFragment_to_tvShowFavoriteListFragment)
         }
         return super.onOptionsItemSelected(item)
     }

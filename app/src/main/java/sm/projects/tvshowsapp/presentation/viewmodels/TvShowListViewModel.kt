@@ -1,4 +1,4 @@
-package sm.projects.tvshowsapp.presentation
+package sm.projects.tvshowsapp.presentation.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,7 +9,7 @@ import sm.projects.tvshowsapp.data.network.RetroService
 import sm.projects.tvshowsapp.data.network.RetrofitInstance
 import sm.projects.tvshowsapp.data.network.entities.TvShowList
 
-class MainViewModel : ViewModel() {
+class TvShowListViewModel : ViewModel() {
 
     var recyclerListLiveData: MutableLiveData<TvShowList> = MutableLiveData()
 

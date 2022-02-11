@@ -14,8 +14,8 @@
             android:id="@+id/action_tvShowListFragment_to_tvShowDescriptionFragment"
             app:destination="@id/tvShowDescriptionFragment" />
         <action
-            android:id="@+id/action_tvShowListFragment_to_favoriteTvShowListFragment"
-            app:destination="@id/favoriteTvShowListFragment" />
+            android:id="@+id/action_tvShowListFragment_to_tvShowFavoriteListFragment"
+            app:destination="@id/tvShowFavoriteListFragment" />
     </fragment>
     <fragment
         android:id="@+id/tvShowDescriptionFragment"
@@ -30,8 +30,12 @@
             app:argType="sm.projects.tvshowsapp.data.db.TvShowDbModel" />
     </fragment>
     <fragment
-        android:id="@+id/favoriteTvShowListFragment"
-        android:name="sm.projects.tvshowsapp.presentation.fragments.FavoriteTvShowListFragment"
-        android:label="fragment_favorite_tv_show_list"
-        tools:layout="@layout/fragment_favorite_tv_show_list" />
+        android:id="@+id/tvShowFavoriteListFragment"
+        android:name="sm.projects.tvshowsapp.presentation.fragments.TvShowFavoriteListFragment"
+        android:label="fragment_tv_show_favorite_list"
+        tools:layout="@layout/fragment_tv_show_favorite_list" >
+        <action
+            android:id="@+id/action_tvShowFavoriteListFragment_to_tvShowListFragment"
+            app:destination="@id/tvShowListFragment" />
+    </fragment>
 </navigation>

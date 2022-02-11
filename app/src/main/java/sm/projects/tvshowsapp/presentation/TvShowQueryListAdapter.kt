@@ -40,15 +40,15 @@ class TvShowQueryListAdapter() :
 
         if (language != null) {
             val tvShowDbModel = TvShowDbModel(id, name, summary, language)
-            createQueryTvSHowList(tvShowDbModel, viewHolder)
+            goToDescriptionFragment(tvShowDbModel, viewHolder)
         } else {
             val tvShowDbModel = TvShowDbModel(id, name, summary, "language not found")
-            createQueryTvSHowList(tvShowDbModel, viewHolder)
+            goToDescriptionFragment(tvShowDbModel, viewHolder)
 
         }
     }
 
-    private fun createQueryTvSHowList(tvShowDbModel: TvShowDbModel, viewHolder: TvShowViewHolder) {
+    private fun goToDescriptionFragment(tvShowDbModel: TvShowDbModel, viewHolder: TvShowViewHolder) {
         val action =
             TvShowListFragmentDirections.actionTvShowListFragmentToTvShowDescriptionFragment(
                 tvShowDbModel
