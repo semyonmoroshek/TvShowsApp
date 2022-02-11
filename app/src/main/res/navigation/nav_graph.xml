@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/tvShowListFragment"
         android:name="sm.projects.tvshowsapp.presentation.fragments.TvShowListFragment"
-        android:label="fragment_tv_show_list"
+        android:label="Search TV Show"
         tools:layout="@layout/fragment_tv_show_list">
         <action
             android:id="@+id/action_tvShowListFragment_to_tvShowDescriptionFragment"
@@ -23,7 +23,7 @@
     <fragment
         android:id="@+id/tvShowDescriptionFragment"
         android:name="sm.projects.tvshowsapp.presentation.fragments.TvShowDescriptionFragment"
-        android:label="fragment_tv_show_description"
+        android:label="TV Show Description"
         tools:layout="@layout/fragment_tv_show_description">
         <action
             android:id="@+id/action_tvShowDescriptionFragment_to_tvShowListFragment"
@@ -35,7 +35,7 @@
     <fragment
         android:id="@+id/tvShowFavoriteListFragment"
         android:name="sm.projects.tvshowsapp.presentation.fragments.TvShowFavoriteListFragment"
-        android:label="fragment_tv_show_favorite_list"
+        android:label="TV Show Favorite list"
         tools:layout="@layout/fragment_tv_show_favorite_list">
         <action
             android:id="@+id/action_tvShowFavoriteListFragment_to_tvShowListFragment"

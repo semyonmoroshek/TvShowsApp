@@ -87,6 +87,9 @@ dependencies {
     kapt("androidx.room:room-compiler:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
 
+    implementation 'it.xabaras.android:recyclerview-swipedecorator:1.2.3'
+
+
 
 
 

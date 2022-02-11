@@ -33,6 +33,8 @@ class TvShowDescriptionFragment : Fragment() {
 
         viewModel = ViewModelProvider(this)[TvShowDescriptionViewModel::class.java]
 
+        
+
 
         binding.imgAddToFavorite.setOnClickListener {
             addTvShowToFavoriteList()
@@ -52,6 +54,8 @@ class TvShowDescriptionFragment : Fragment() {
             viewModel.addTvShowObject(tvShowObject)
 
     }
+
+
 
     companion object {
 

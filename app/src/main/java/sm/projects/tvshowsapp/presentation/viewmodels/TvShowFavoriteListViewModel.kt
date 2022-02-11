@@ -36,6 +36,12 @@ class TvShowFavoriteListViewModel(application: Application) : AndroidViewModel(a
         }
     }
 
+    fun addTvShowObject(tvShowObject: TvShowObject) {
+        viewModelScope.launch {
+            addTvShowObjectUseCase.addTvShowItem(tvShowObject)
+        }
+    }
+
 //    var recyclerListLiveData: MutableLiveData<TvShowList> = MutableLiveData()
 
 //    fun getRecyclerListObserver(): MutableLiveData<TvShowList> {

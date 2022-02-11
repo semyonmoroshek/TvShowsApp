@@ -16,7 +16,7 @@ import sm.projects.tvshowsapp.presentation.fragments.TvShowFavoriteListFragmentD
 class FavoriteTvShowListAdapter() :
     RecyclerView.Adapter<FavoriteTvShowListAdapter.FavoriteTvShowListViewHolder>(){
 
-    private var favoriteTvShowList = emptyList<TvShowObject>()
+     var favoriteTvShowList = emptyList<TvShowObject>()
 
     fun setUpdatedData(items: List<TvShowObject>) {
         this.favoriteTvShowList = items
