@@ -9,7 +9,6 @@ import sm.projects.tvshowsapp.data.db.TvShowListMapper
 import sm.projects.tvshowsapp.domain.TvShowObject
 import sm.projects.tvshowsapp.domain.TvShowRepository
 
-
 class TvShowListRepositoryImpl(
     application: Application
 ) : TvShowRepository {
@@ -18,8 +17,6 @@ class TvShowListRepositoryImpl(
     private val mapper = TvShowListMapper()
 
     override suspend fun addTvShowItemObject(tvShowObject: TvShowObject) {
-        Log.i("showadded", "showadded")
-
         tvShowListDao.addTvShowObject(mapper.mapEntityToDbModel(tvShowObject))
     }
 

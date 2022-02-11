@@ -1,9 +1,6 @@
 package sm.projects.tvshowsapp.domain
 
 import androidx.lifecycle.LiveData
-import sm.projects.tvshowsapp.data.db.TvShowDbModel
-import sm.projects.tvshowsapp.data.network.entities.TvShow
-import sm.projects.tvshowsapp.data.network.entities.TvShowItem
 
 interface TvShowRepository {
 

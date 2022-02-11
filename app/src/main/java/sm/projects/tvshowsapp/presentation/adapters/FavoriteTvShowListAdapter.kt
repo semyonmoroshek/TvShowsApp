@@ -1,15 +1,12 @@
-package sm.projects.tvshowsapp.presentation
+package sm.projects.tvshowsapp.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import sm.projects.tvshowsapp.R
-import sm.projects.tvshowsapp.data.db.TvShowDbModel
-import sm.projects.tvshowsapp.data.network.entities.TvShowItem
 import sm.projects.tvshowsapp.domain.TvShowObject
 import sm.projects.tvshowsapp.presentation.fragments.TvShowFavoriteListFragmentDirections
 

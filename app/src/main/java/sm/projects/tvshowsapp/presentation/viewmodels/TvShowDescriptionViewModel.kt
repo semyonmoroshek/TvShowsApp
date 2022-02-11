@@ -15,24 +15,10 @@ class TvShowDescriptionViewModel(application: Application): AndroidViewModel(app
 
     private val repository = TvShowListRepositoryImpl(application)
     private val addTvShowObjectUseCase = AddTvShowObjectUseCase(repository)
-    private val getTvShowObjectUseCase = GetTvShowObjectUseCase(repository)
-
-
-    private val _showObject = MutableLiveData<TvShowObject>()
-    val shopItem: LiveData<TvShowObject>
-        get() = _showObject
-
 
     fun addTvShowObject(tvShowObject: TvShowObject) {
         viewModelScope.launch {
             addTvShowObjectUseCase.addTvShowItem(tvShowObject)
-        }
-    }
-
-    fun getTvShowObject(tvShowObjectId: Int){
-        viewModelScope.launch {
-            val tvShowObject = getTvShowObjectUseCase.getTvShowObject(tvShowObjectId)
-            _showObject.value = tvShowObject
         }
     }
 }

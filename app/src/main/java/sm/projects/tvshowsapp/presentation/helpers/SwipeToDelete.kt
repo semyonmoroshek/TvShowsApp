@@ -1,4 +1,4 @@
-package sm.projects.tvshowsapp.presentation
+package sm.projects.tvshowsapp.presentation.helpers
 
 import android.graphics.Canvas
 import androidx.recyclerview.widget.ItemTouchHelper

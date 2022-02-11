@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import sm.projects.tvshowsapp.R
 import sm.projects.tvshowsapp.data.network.entities.TvShowList
 import sm.projects.tvshowsapp.presentation.viewmodels.TvShowListViewModel
-import sm.projects.tvshowsapp.presentation.TvShowQueryListAdapter
 
 
 class TvShowListFragment : Fragment() {
@@ -61,7 +60,7 @@ class TvShowListFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_item, menu)
-                val search = menu.findItem(R.id.menu_search)
+        val search = menu.findItem(R.id.menu_search)
         val searchView = search?.actionView as? SearchView
         searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
@@ -79,7 +78,6 @@ class TvShowListFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         if (item.itemId == R.id.menu_favorite_show) {
             findNavController().navigate(R.id.action_tvShowListFragment_to_tvShowFavoriteListFragment)
         }
