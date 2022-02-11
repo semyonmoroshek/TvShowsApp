@@ -1,6 +1,7 @@
 package sm.projects.tvshowsapp.presentation.viewmodels
 
 import android.app.Application
+import android.text.TextUtils
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -11,6 +12,8 @@ import kotlinx.coroutines.launch
 import sm.projects.tvshowsapp.data.TvShowListRepositoryImpl
 import sm.projects.tvshowsapp.data.db.AppDatabase
 import sm.projects.tvshowsapp.data.db.TvShowDbModel
+import sm.projects.tvshowsapp.data.network.RetroService
+import sm.projects.tvshowsapp.data.network.RetrofitInstance
 import sm.projects.tvshowsapp.data.network.entities.TvShowList
 import sm.projects.tvshowsapp.domain.*
 
@@ -25,12 +28,7 @@ class TvShowFavoriteListViewModel(application: Application) : AndroidViewModel(a
 
     val tvShowList = getTvShowListUseCase.getTvShowObjectList()
 
-
-    fun addTvShowObject(tvShowObject: TvShowObject) {
-            viewModelScope.launch {
-               addTvShowObjectUseCase.addTvShowItem(tvShowObject)
-        }
-    }
+    var recyclerFavoriteListLiveData: MutableLiveData<List<TvShowDbModel>> = MutableLiveData()
 
     fun deleteTvShowObject(tvShowObject: TvShowObject) {
         viewModelScope.launch {
@@ -38,10 +36,20 @@ class TvShowFavoriteListViewModel(application: Application) : AndroidViewModel(a
         }
     }
 
-    fun getTvShowObject(tvShowObjectId: Int){
-        viewModelScope.launch {
-            val tvShowObject = getTvShowObjectUseCase.getTvShowObject(tvShowObjectId)
-        }
-    }
+//    var recyclerListLiveData: MutableLiveData<TvShowList> = MutableLiveData()
+
+//    fun getRecyclerListObserver(): MutableLiveData<TvShowList> {
+//        return recyclerListLiveData
+//    }
+//
+//    fun makeApiCall(query: String) {
+//        viewModelScope.launch(Dispatchers.IO) {
+//            val retroInstance =
+//                RetrofitInstance.getRetrofitInstance().create(RetroService::class.java)
+//            val tvShowItem = retroInstance.getTvShowsFromApi(query)
+//            recyclerListLiveData.postValue(tvShowItem)
+//        }
+//    }
+
 
 }

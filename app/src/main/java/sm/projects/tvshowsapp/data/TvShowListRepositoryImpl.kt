@@ -1,6 +1,7 @@
 package sm.projects.tvshowsapp.data
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import sm.projects.tvshowsapp.data.db.AppDatabase
@@ -17,6 +18,8 @@ class TvShowListRepositoryImpl(
     private val mapper = TvShowListMapper()
 
     override suspend fun addTvShowItemObject(tvShowObject: TvShowObject) {
+        Log.i("showadded", "showadded")
+
         tvShowListDao.addTvShowObject(mapper.mapEntityToDbModel(tvShowObject))
     }
 

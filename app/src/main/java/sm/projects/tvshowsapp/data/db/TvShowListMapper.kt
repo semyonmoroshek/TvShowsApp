@@ -9,6 +9,7 @@ class TvShowListMapper {
         name = tvShowObject.name,
         summary = tvShowObject.summary,
         language = tvShowObject.language
+
     )
 
     fun mapDbModelToEntity(tvShowDbModel: TvShowDbModel) = TvShowObject(

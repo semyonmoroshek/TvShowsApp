@@ -14,7 +14,7 @@ import sm.projects.tvshowsapp.presentation.fragments.TvShowListFragmentDirection
 class TvShowQueryListAdapter() :
     RecyclerView.Adapter<TvShowQueryListAdapter.TvShowViewHolder>() {
 
-    var tvShowListItems = ArrayList<TvShowItem>()
+    private var tvShowListItems = ArrayList<TvShowItem>()
 
     fun setUpdatedData(items: ArrayList<TvShowItem>) {
         this.tvShowListItems = items
@@ -38,11 +38,17 @@ class TvShowQueryListAdapter() :
         val summary = tvShow.summary
         val language = tvShow.language
 
-        if (language != null) {
+        if (language != null && summary != null && name != null) {
             val tvShowDbModel = TvShowDbModel(id, name, summary, language)
             goToDescriptionFragment(tvShowDbModel, viewHolder)
-        } else {
+        } else if (id == null) {
             val tvShowDbModel = TvShowDbModel(id, name, summary, "language not found")
+            goToDescriptionFragment(tvShowDbModel, viewHolder)
+        } else if (summary == null){
+            val tvShowDbModel = TvShowDbModel(id, name, "summary not found", language)
+            goToDescriptionFragment(tvShowDbModel, viewHolder)
+        } else if (name == null){
+            val tvShowDbModel = TvShowDbModel(id, "name not found", summary, language)
             goToDescriptionFragment(tvShowDbModel, viewHolder)
 
         }
