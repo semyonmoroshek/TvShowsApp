@@ -1,7 +1,6 @@
 package sm.projects.tvshowsapp.presentation.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,11 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
-import sm.projects.tvshowsapp.data.db.TvShowDbModel
 import sm.projects.tvshowsapp.databinding.FragmentTvShowDescriptionBinding
 import sm.projects.tvshowsapp.domain.TvShowObject
 import sm.projects.tvshowsapp.presentation.viewmodels.TvShowDescriptionViewModel
-import sm.projects.tvshowsapp.presentation.viewmodels.TvShowFavoriteListViewModel
 
 
 class TvShowDescriptionFragment : Fragment() {
@@ -30,9 +27,9 @@ class TvShowDescriptionFragment : Fragment() {
         _binding = FragmentTvShowDescriptionBinding.inflate(inflater, container, false)
 
 
-        binding.txtName.text = args.currentDbShowDbModel.name
-        binding.txtSummary.text = args.currentDbShowDbModel.summary
-        binding.txtLanguage.text = args.currentDbShowDbModel.language
+        binding.txtName.text = args.currentTvShowObject.name
+        binding.txtSummary.text = args.currentTvShowObject.summary
+        binding.txtLanguage.text = args.currentTvShowObject.language
 
         viewModel = ViewModelProvider(this)[TvShowDescriptionViewModel::class.java]
 
@@ -47,12 +44,12 @@ class TvShowDescriptionFragment : Fragment() {
     }
 
     private fun addTvShowToFavoriteList() {
-        val id = args.currentDbShowDbModel.id
-        val name = args.currentDbShowDbModel.name
-        val summary = args.currentDbShowDbModel.summary
-        val language = args.currentDbShowDbModel.language
-        val tvShowDbObject = TvShowObject(id, name, summary, language)
-            viewModel.addTvShowObject(tvShowDbObject)
+        val id = args.currentTvShowObject.id
+        val name = args.currentTvShowObject.name
+        val summary = args.currentTvShowObject.summary
+        val language = args.currentTvShowObject.language
+        val tvShowObject = TvShowObject(id, name, summary, language)
+            viewModel.addTvShowObject(tvShowObject)
 
     }
 

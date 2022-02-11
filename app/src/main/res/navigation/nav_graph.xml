@@ -9,33 +9,39 @@
         android:id="@+id/tvShowListFragment"
         android:name="sm.projects.tvshowsapp.presentation.fragments.TvShowListFragment"
         android:label="fragment_tv_show_list"
-        tools:layout="@layout/fragment_tv_show_list" >
+        tools:layout="@layout/fragment_tv_show_list">
         <action
             android:id="@+id/action_tvShowListFragment_to_tvShowDescriptionFragment"
             app:destination="@id/tvShowDescriptionFragment" />
         <action
             android:id="@+id/action_tvShowListFragment_to_tvShowFavoriteListFragment"
             app:destination="@id/tvShowFavoriteListFragment" />
+        <argument
+            android:name="currentTvShowObject"
+            app:argType="sm.projects.tvshowsapp.domain.TvShowObject" />
     </fragment>
     <fragment
         android:id="@+id/tvShowDescriptionFragment"
         android:name="sm.projects.tvshowsapp.presentation.fragments.TvShowDescriptionFragment"
         android:label="fragment_tv_show_description"
-        tools:layout="@layout/fragment_tv_show_description" >
+        tools:layout="@layout/fragment_tv_show_description">
         <action
             android:id="@+id/action_tvShowDescriptionFragment_to_tvShowListFragment"
             app:destination="@id/tvShowListFragment" />
         <argument
-            android:name="currentDbShowDbModel"
-            app:argType="sm.projects.tvshowsapp.data.db.TvShowDbModel" />
+            android:name="currentTvShowObject"
+            app:argType="sm.projects.tvshowsapp.domain.TvShowObject" />
     </fragment>
     <fragment
         android:id="@+id/tvShowFavoriteListFragment"
         android:name="sm.projects.tvshowsapp.presentation.fragments.TvShowFavoriteListFragment"
         android:label="fragment_tv_show_favorite_list"
-        tools:layout="@layout/fragment_tv_show_favorite_list" >
+        tools:layout="@layout/fragment_tv_show_favorite_list">
         <action
             android:id="@+id/action_tvShowFavoriteListFragment_to_tvShowListFragment"
             app:destination="@id/tvShowListFragment" />
+        <action
+            android:id="@+id/action_tvShowFavoriteListFragment_to_tvShowDescriptionFragment"
+            app:destination="@id/tvShowDescriptionFragment" />
     </fragment>
 </navigation>

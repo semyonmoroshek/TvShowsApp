@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import sm.projects.tvshowsapp.R
 import sm.projects.tvshowsapp.data.db.TvShowDbModel
 import sm.projects.tvshowsapp.data.network.entities.TvShowItem
+import sm.projects.tvshowsapp.domain.TvShowObject
 import sm.projects.tvshowsapp.presentation.fragments.TvShowListFragmentDirections
 
 class TvShowQueryListAdapter() :
@@ -39,25 +40,24 @@ class TvShowQueryListAdapter() :
         val language = tvShow.language
 
         if (language != null && summary != null && name != null) {
-            val tvShowDbModel = TvShowDbModel(id, name, summary, language)
-            goToDescriptionFragment(tvShowDbModel, viewHolder)
+            val tvShowObject = TvShowObject(id, name, summary, language)
+            goToDescriptionFragment(tvShowObject, viewHolder)
         } else if (id == null) {
-            val tvShowDbModel = TvShowDbModel(id, name, summary, "language not found")
-            goToDescriptionFragment(tvShowDbModel, viewHolder)
+            val tvShowObject = TvShowObject(id, name, summary, "language not found")
+            goToDescriptionFragment(tvShowObject, viewHolder)
         } else if (summary == null){
-            val tvShowDbModel = TvShowDbModel(id, name, "summary not found", language)
-            goToDescriptionFragment(tvShowDbModel, viewHolder)
+            val tvShowObject = TvShowObject(id, name, "summary not found", language)
+            goToDescriptionFragment(tvShowObject, viewHolder)
         } else if (name == null){
-            val tvShowDbModel = TvShowDbModel(id, "name not found", summary, language)
-            goToDescriptionFragment(tvShowDbModel, viewHolder)
-
+            val tvShowObject = TvShowObject(id, "name not found", summary, language)
+            goToDescriptionFragment(tvShowObject, viewHolder)
         }
     }
 
-    private fun goToDescriptionFragment(tvShowDbModel: TvShowDbModel, viewHolder: TvShowViewHolder) {
+    private fun goToDescriptionFragment(tvShowObject: TvShowObject, viewHolder: TvShowViewHolder) {
         val action =
             TvShowListFragmentDirections.actionTvShowListFragmentToTvShowDescriptionFragment(
-                tvShowDbModel
+                tvShowObject
             )
 
         viewHolder.itemView.setOnClickListener {

@@ -4,12 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import sm.projects.tvshowsapp.R
 import sm.projects.tvshowsapp.data.db.TvShowDbModel
 import sm.projects.tvshowsapp.data.network.entities.TvShowItem
 import sm.projects.tvshowsapp.domain.TvShowObject
+import sm.projects.tvshowsapp.presentation.fragments.TvShowFavoriteListFragmentDirections
 
 class FavoriteTvShowListAdapter() :
     RecyclerView.Adapter<FavoriteTvShowListAdapter.FavoriteTvShowListViewHolder>(){
@@ -35,8 +37,14 @@ class FavoriteTvShowListAdapter() :
         holder.bind(favoriteTvShowList[position])
 
         val name = favoriteTvShowList[position].name
+        val tvShow = favoriteTvShowList[position]
 
         holder.name.text = name
+
+        val action = TvShowFavoriteListFragmentDirections.actionTvShowFavoriteListFragmentToTvShowDescriptionFragment(tvShow)
+        holder.itemView.setOnClickListener {
+            holder.itemView.findNavController().navigate(action)
+        }
     }
     override fun getItemCount(): Int {
         return favoriteTvShowList.size
